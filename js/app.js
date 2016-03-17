@@ -2,6 +2,12 @@
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
+    this.speedRange = {
+      min : 20,
+      max : 70
+    };
+    this.speed = this.randomSpeed();
+    this.reset();
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -19,6 +25,22 @@ Enemy.prototype.update = function(dt) {
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+Enemy.prototype.xCoord = function() {
+
+}
+
+Enemy.prototype.yCoord = function() {
+
+}
+
+Enemy.prototype.reset = function() {
+
+}
+
+Enemy.prototype.randomSpeed = function() {
+    return Math.floor(Math.random() * ((this.speedRange.max + this.speedRange.min) / 2)) + this.speedRange.min;
 };
 
 // Now write your own player class
